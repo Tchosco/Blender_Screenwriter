@@ -1,3 +1,9 @@
+# M1: Fountain → 3D (Blender 5.2.3)
+
+Novo protótipo: uma cena de 30–60 segundos, dois personagens primitivos, estúdio, animação, câmeras e MP4 sem modelagem manual. Veja **[instalação e uso do M1](docs/M1.md)** e **[resultados reais dos testes](docs/TEST_RESULTS.md)**. A prévia de 30 segundos foi renderizada e reaberta no Blender 5.2.3; o render padrão de 40 segundos não foi concluído por falta de espaço local. O fluxo anterior permanece disponível.
+
+---
+
 [<img src="https://img.shields.io/badge/Discord%20-%20Invite">](https://discord.gg/HMYpnPzbTm) ![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/tintwotin)
 
 # Blender Screenwriter & Screenplayer
@@ -215,4 +221,4 @@ https://github.com/gabrielmontagne/blender-addon-link-text-to-frame
 
 ### About
 
-This add-on utilizes a fountain script parser, which converts .fountain files to python object. The Fountain screenplay format is by Nima Yousefi & John August; original code for Objective-C at https://github.com/nyousefi/Fountain. It is ported to Python 3 by Colton J. Provias, improved by Manuel Senfft https://github.com/Tagirijus/fountain. The Screenplain module by Martin Vilcans is used for exports https://github.com/vilcans/screenplain. 
+This add-on utilizes a fountain script parser, which converts .fountain files to python object. The Fountain screenplay format is by Nima Yousefi & John August; original code for Objective-C at https://github.com/nyousefi/Fountain. It is ported to Python 3 by Colton J. Provias, improved by Manuel Senfft https://github.com/Tagirijus/fountain. The Screenplain module by Martin Vilcans is used for exports https://github.com/vilcans/screenplain.
