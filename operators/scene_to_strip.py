@@ -368,7 +368,11 @@ def create_scenes_objects(channel, start, end, text):
                 bpy.context.scene.sequence_editor.strips_all[newScene.name].frame_start = frame_start 
                 bpy.context.scene.sequence_editor.channels[channel].name = "3D Scene"              
         
-    bpy.ops.sequencer.set_range_to_strips()
+    # Called from the Text Editor: the sequencer operator requires another area.
+    strips = bpy.context.scene.sequence_editor.strips
+    if strips:
+        bpy.context.scene.frame_start = min(s.frame_final_start for s in strips)
+        bpy.context.scene.frame_end = max(s.frame_final_end for s in strips) - 1
 
     return {'FINISHED'}
 

@@ -1,3 +1,9 @@
+# M1: Fountain → 3D (Blender 5.2.3)
+
+Novo protótipo: uma cena de 30–60 segundos, dois personagens primitivos, estúdio, animação, câmeras e MP4 sem modelagem manual. Veja **[instalação e uso do M1](docs/M1.md)** e **[resultados reais dos testes](docs/TEST_RESULTS.md)**. A prévia de 30 segundos foi renderizada e reaberta no Blender 5.2.3; o render padrão de 40 segundos não foi concluído por falta de espaço local. O fluxo anterior permanece disponível.
+
+---
+
 [<img src="https://img.shields.io/badge/Discord%20-%20Invite">](https://discord.gg/HMYpnPzbTm) ![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/tintwotin)
 
 # Blender Screenwriter & Screenplayer

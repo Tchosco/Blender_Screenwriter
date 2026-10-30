@@ -149,6 +149,7 @@ class SCREENWRITER_PT_screenplayer_panel(bpy.types.Panel):
         layout_big.separator()
         layout_big.scale_y = 1.3
         layout_big.operator("screenwriter.fountain_to_strips", text="Generate Movie")
+        layout_big.operator("screenwriter.generate_m1", text="Generate M1 3D")
         #layout.operator("screenwriter.strips_to_markers")
         #layout.operator("screenwriter.clear_markers")
         #layout.prop(context.scene, 'screenwriter_channel')

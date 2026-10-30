@@ -47,12 +47,14 @@ class Fountain:
             with open(path) as fp:
                 self.contents = fp.read()
         else:
-            self.contents = string
+            self.contents = string or ''
         if self.contents != '':
             self.parse()
 
     def parse(self):
         contents = self.contents.strip().replace('\r', '')
+        if not contents:
+            return
 
         contents_has_metadata = ':' in contents.splitlines()[0]
         contents_has_body = '\n\n' in contents
@@ -70,14 +72,18 @@ class Fountain:
         open_key = None
         for line in script_head:
             line = line.rstrip()
+            if not line:
+                continue
             if line[0].isspace():
-                self.metadata[open_key].append(line.strip())
+                if open_key is not None:
+                    self.metadata[open_key].append(line.strip())
             elif line[-1] == ':':
                 open_key = line[0:-1].lower()
                 self.metadata[open_key] = list()
-            else:
+            elif ':' in line:
                 key, value = line.split(':', 1)
-                self.metadata[key.strip().lower()] = [value.strip()]
+                open_key = key.strip().lower()
+                self.metadata[open_key] = [value.strip()]
 
     def _parse_body(self, script_body):
         is_comment_block = False
@@ -316,6 +322,7 @@ class Fountain:
                 newlines_before > 0 and
                 index + 1 < len(script_body) and
                 script_body[index + 1] and
+                full_strip.isupper() and
                 not line[0] in ['[', ']', ',', '(', ')']
             ):
                 newlines_before = 0

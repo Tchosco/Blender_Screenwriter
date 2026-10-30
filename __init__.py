@@ -29,6 +29,7 @@ from bpy.props import IntProperty, BoolProperty, PointerProperty, StringProperty
 #         if inspect.isclass(obj) and name != "persistent":
 #             classes.append(obj)
 
+from .operators.m1_generate import SCREENWRITER_OT_generate_m1
 from .operators.dual_view import *
 from .operators.fountain_export import *
 from .operators.preview_fountain import *
@@ -42,20 +43,8 @@ from .gui import *
 from .properties import *
 
 
-# screenplain
-pybin = sys.executable #bpy.app.binary_path_python
-try:
-    subprocess.call([pybin, "-m", "ensurepip"])
-except ImportError:
-    pass
-try:
-    import screenplain.parsers.fountain as fountain
-except ImportError:
-    subprocess.check_call([pybin, '-m', 'pip', 'install', 'screenplain[PDF]'])
-try:
-    import screenplain.parsers.fountain as fountain
-except ImportError:
-    print("Installation of Screenplain failed. Try running Blender as admin, or install Screenplain manually.")
+# Screenplain is optional and loaded only by the existing export operator.
+# Never install dependencies or shadow the bundled Fountain parser at import.
 
 class ObjectProperties(PropertyGroup):
     objectname: StringProperty(name="Name")
@@ -76,7 +65,8 @@ class AssignKeywordsProperties(PropertyGroup):
     new_keyword: StringProperty(name="Name")
 
 
-classes = (SCREENWRITER_PT_panel,
+classes = (SCREENWRITER_OT_generate_m1,
+            SCREENWRITER_PT_panel,
             #SCREENWRITER_PT_keywords,
             #SCREENWRITER_PT_objects,
             SCREENWRITER_OT_preview_fountain,
